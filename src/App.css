@@ -1,38 +1,139 @@
-.App {
+/* Genel Sayfa Stili */
+body {
+  background: linear-gradient(to right, #00c6ff, #0072ff);
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+}
+
+/* Başlık ve İçerik Stili */
+.container {
+  width: 100%;
+  max-width: 800px;
+  padding: 20px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.title {
+  font-size: 4rem; /* Başlık boyutunu büyüttük */
+  font-weight: bold;
+  color: black; /* Siyah renk */
+  margin-bottom: 30px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.content h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.content p {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+}
+
+/* Yükleme Alanı */
+.upload-area {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 40px;
+}
+
+#file-upload {
+  background-color: #ffffff;
+  color: #0072ff;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  margin-right: 20px;
+}
+
+button {
+  background-color: #0072ff;
+  color: white;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: #005bb5;
+  transform: scale(1.05);
+}
+
+/* Yeniden yükleme butonu */
+.reset-button button {
+  background-color: #ff5722;
+  margin-top: 20px;
+  transition: all 0.3s ease;
+}
+
+.reset-button button:hover {
+  background-color: #e64a19;
+}
+
+/* Puan Görüntüleme Alanı */
+.score-display {
+  margin-top: 30px;
+}
+
+.score-bar {
+  background-color: #ddd;
+  border-radius: 25px;
+  overflow: hidden;
+  height: 30px;
+  width: 80%;
+  margin: 20px auto;
+}
+
+.score {
+  height: 100%;
+  color: white;
+  text-align: center;
+  line-height: 30px;
+  font-size: 1.2rem;
+  transition: width 0.5s ease;
+}
+
+/* Kriterler Alanı */
+.criteria {
+  text-align: left;
+  margin-top: 30px;
+}
+
+.criterion {
+  margin: 10px 0;
+}
+
+.criterion h4 {
+  font-size: 1.2rem;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.criterion-bar {
+  background-color: #ddd;
+  border-radius: 25px;
+  overflow: hidden;
+  height: 25px;
+  width: 80%;
+  margin-top: 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.criterion-progress {
+  height: 100%;
+  color: white;
+  text-align: center;
+  line-height: 25px;
+  font-size: 1rem;
+  transition: width 0.5s ease;
 }
