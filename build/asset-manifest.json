@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/oguzhanbilgi/cv-scoring-app-with-ai/static/css/main.972ddf9c.css",
-    "main.js": "/oguzhanbilgi/cv-scoring-app-with-ai/static/js/main.79f8b404.js",
+    "main.js": "/oguzhanbilgi/cv-scoring-app-with-ai/static/js/main.061fc2ab.js",
     "static/js/488.cbcbfd39.chunk.js": "/oguzhanbilgi/cv-scoring-app-with-ai/static/js/488.cbcbfd39.chunk.js",
     "index.html": "/oguzhanbilgi/cv-scoring-app-with-ai/index.html",
     "main.972ddf9c.css.map": "/oguzhanbilgi/cv-scoring-app-with-ai/static/css/main.972ddf9c.css.map",
-    "main.79f8b404.js.map": "/oguzhanbilgi/cv-scoring-app-with-ai/static/js/main.79f8b404.js.map",
+    "main.061fc2ab.js.map": "/oguzhanbilgi/cv-scoring-app-with-ai/static/js/main.061fc2ab.js.map",
     "488.cbcbfd39.chunk.js.map": "/oguzhanbilgi/cv-scoring-app-with-ai/static/js/488.cbcbfd39.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.972ddf9c.css",
-    "static/js/main.79f8b404.js"
+    "static/js/main.061fc2ab.js"
   ]
 }
