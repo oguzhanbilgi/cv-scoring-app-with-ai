@@ -1,0 +1,56 @@
+import torch
+import torch.nn as nn
+import torch.optim as optim
+
+# Basit bir yapay sinir ağı (MLP) modeli
+class CVScoringModel(nn.Module):
+    def __init__(self):
+        super(CVScoringModel, self).__init__()
+        self.fc1 = nn.Linear(10, 64)  # 10 giriş, 64 çıkış
+        self.fc2 = nn.Linear(64, 32)  # 64 giriş, 32 çıkış
+        self.fc3 = nn.Linear(32, 1)   # 32 giriş, 1 çıkış (skor)
+
+    def forward(self, x):
+        x = torch.relu(self.fc1(x))  # ReLU aktivasyonu
+        x = torch.relu(self.fc2(x))  # ReLU aktivasyonu
+        x = self.fc3(x)              # Son katman (skor)
+        return x
+
+# Eğitim için veriyi tanımlayalım (örnek veri, kendi verinle değiştir)
+# Özellikler (input features): [deneyim, eğitim, beceriler, vb.]
+inputs = torch.randn(100, 10)  # 100 örnek, her biri 10 özellik
+targets = torch.randn(100, 1)  # 100 hedef (skorlar)
+
+# Modeli oluştur
+model = CVScoringModel()
+
+# Kayıp fonksiyonu ve optimizer
+criterion = nn.MSELoss()  # Mean Squared Error (MSE) kayıp fonksiyonu
+optimizer = optim.Adam(model.parameters(), lr=0.001)  # Optimizer (Adam)
+
+# Eğitim döngüsü
+for epoch in range(100):  # 100 epoch
+    model.train()  # Modeli eğitim modunda çalıştır
+
+    optimizer.zero_grad()   # Gradient sıfırlama
+    outputs = model(inputs) # Model çıktısını al
+
+    loss = criterion(outputs, targets)  # Kayıp hesapla
+    loss.backward()  # Backpropagation
+    optimizer.step()  # Optimizer adımı
+
+    if epoch % 10 == 0:
+        print(f"Epoch {epoch}, Loss: {loss.item()}")
+
+# Model eğitildikten sonra, modelin değerlendirme moduna geçmesi gerekiyor
+model.eval()
+
+# Kaydedilecek dizini kontrol et, eğer yoksa oluştur
+import os
+model_save_path = './models/cv_scoring_model.pth'
+if not os.path.exists(os.path.dirname(model_save_path)):
+    os.makedirs(os.path.dirname(model_save_path))
+
+# Modeli kaydedin
+torch.save(model.state_dict(), model_save_path)
+print(f"Model başarıyla kaydedildi: {model_save_path}")
