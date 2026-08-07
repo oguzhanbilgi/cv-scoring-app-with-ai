@@ -1,70 +1,81 @@
-# Getting Started with Create React App
+# AI-Assisted CV Scoring Prototype
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A React-based portfolio prototype for uploading a CV and displaying an ATS-style score returned by a backend service.
 
-## Available Scripts
+> This repository currently contains the **frontend client**. The UI sends the selected CV file to a `/predict` endpoint and displays the returned score. The backend/NLP implementation is not included in this public repository, so this README does not claim functionality that cannot be verified from the code here.
 
-In the project directory, you can run:
+## What it demonstrates
 
-### `npm start`
+- React state and file-input handling
+- Multipart file upload with Axios
+- Frontend-to-backend API integration
+- Score visualization and conditional UI styling
+- GitHub Pages deployment workflow
+- AI-assisted development used as part of the learning process
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Tech stack
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- React 19
+- JavaScript
+- Axios
+- Create React App
+- GitHub Pages
 
-### `npm test`
+## Current flow
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```text
+Select CV file
+    ↓
+React builds FormData
+    ↓
+POST http://localhost:5000/predict
+    ↓
+Backend returns { score: ... }
+    ↓
+UI displays ATS score
+```
 
-### `npm run build`
+## Local setup
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+git clone https://github.com/oguzhanbilgi/cv-scoring-app-with-ai.git
+cd cv-scoring-app-with-ai
+npm install
+npm start
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The frontend expects a backend service at:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```text
+POST http://localhost:5000/predict
+```
 
-### `npm run eject`
+with a multipart form field named `cv` and a JSON response containing a `score` value.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Project status
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+This is an early portfolio/learning prototype, not a production ATS or hiring decision system. The public repository currently focuses on the frontend experience.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Planned improvements:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- Include or document the backend service
+- Replace the hard-coded API URL with environment configuration
+- Add upload progress and clearer error states
+- Validate file size/type before upload
+- Add automated frontend tests
+- Add accessible score feedback
+- Document the scoring method and limitations if the backend is published
 
-## Learn More
+## Responsible use
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+A CV score should never be treated as a final hiring decision. Any future scoring logic should be transparent, tested for bias and used only as one supporting signal alongside human review.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Related links
 
-### Code Splitting
+- [Portfolio](https://oguzhanbilgi.github.io/oguzhan-portfolio/)
+- [GitHub profile](https://github.com/oguzhanbilgi)
+- [LinkedIn](https://www.linkedin.com/in/oguzhanbilgi3/)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Author
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+**Oğuzhan Bilgi** — Junior Software Developer / Technical Engineer based in Istanbul, Türkiye.
